@@ -1,0 +1,14 @@
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+
+# open pipe for 1st client 
+- pipeline.id: client1
+  path.config: "/etc/logstash/conf.d/zeek_suricata_client1.conf"
+  pipeline.workers: 2
+  queue.type: persisted
+# open pipe for 2nd client 
+- pipeline.id: client2
+  path.config: "/etc/logstash/conf.d/zeek_suricata_client2.conf"
+  pipeline.workers: 2
+  queue.type: persisted
